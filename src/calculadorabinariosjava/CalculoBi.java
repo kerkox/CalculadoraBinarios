@@ -490,13 +490,15 @@ public class CalculoBi {
         //para luego limpiar de decimales 
 
         // #otro punto a evaluar es que no se permite la division por 0
+        
         if (Integer.parseInt(this.bin2) == 0) {
             throw new Exception("No se permite la division por cero 0");
         } else if ((!numberValid(this.bin1)) || (!numberValid(this.bin2))) {
             throw new Exception("como sera posbile que hayas digitado mal");
         }
+        
         if (this.bin2.contains(".") && (!this.bin1.contains("."))) {
-            int indicePunto = this.bin1.indexOf("."), decimales = 0;
+            int indicePunto = this.bin2.indexOf("."), decimales = 0;
             this.bin2 = this.bin2.replace(".", "");
             decimales = this.bin2.length() - indicePunto;
             for (int x = 0; x < decimales; x++) {
@@ -520,27 +522,20 @@ public class CalculoBi {
 
             //Primero se cogen cantidades iguales para hacer la resta
             buffer = this.bin1.substring(0, size);
-            next = size+1;
+            next = size;
 
             while (next <= this.bin1.length()) {
-                System.out.println("Valore de next: " + next);
+                
                 //Ahora se compara si cabe o no osea si el dividendo es mayor
                 
                     //Aqui sucede que el divisor es mayor entonces se toma un valor mas
-                System.out.println("valor de verdad mayor "+buffer +" > "+bin2+" : "+mayorBin(buffer, bin2));    
+                
                 if (mayorBin(buffer, bin2)) {
                         cociente += "1";
                         resto = Restar(buffer, this.bin2);
                         //Ahora si sera mayor el dividendo
                     } else {
                         cociente += "0";
-//                        buffer = this.bin1.substring(0, next);
-//                        if(mayorBin(buffer, this.bin2)){
-//                            resto = Restar(buffer, this.bin2);
-//                        }
-//                        resto = Restar(buffer, this.bin2);
-                        
-                        
                     }
                
                 //Aqui se realiza la resta para obtener el resto
@@ -552,21 +547,14 @@ public class CalculoBi {
                     resto += this.bin1.charAt(next) + "";
 
                 }
-                System.out.println("Valores de resto: " + resto);
+                
             //si ya se llego al limite se deja con ese valor
 
                 //ahora para el ciclo se le da el valor a buffer de resto 
                 buffer = resto;
             //se evalia si el buffer es mayor que el divisor sino entonces 
                 //al cociente va un 0 y se le agrega un 0 al buffer
-
-//                if (mayorBin(buffer, this.bin2)) {
-//                    cociente += "1";
-//                } else {
-//                    cociente += "0";
-//                    buffer += "0";
-//                }
-                System.out.println("Cociente : " + cociente);
+                
                 //Ahora se incrementa la variable next
                 next++;
 

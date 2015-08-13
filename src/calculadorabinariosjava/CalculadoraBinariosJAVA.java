@@ -16,7 +16,7 @@ public class CalculadoraBinariosJAVA {
      */
     public static void main(String[] args) {
         try{
-        String b1 = "110", b2 ="11";
+        String b1 = "1011", b2 ="101";
        
         
         CalculoBi num = new CalculoBi(b1, b2);

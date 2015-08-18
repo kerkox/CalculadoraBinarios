@@ -5,6 +5,8 @@
  */
 package calculadorabinariosjava;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Poolker
@@ -17,6 +19,9 @@ public class CalculadoraBinariosJAVA {
     public static void main(String[] args) {
         try{
         String b1 = "1011", b2 ="101";
+        
+        b1 = JOptionPane.showInputDialog("Ingresa el primer valor");
+        b2 = JOptionPane.showInputDialog("Ingresa el Segundo valor");
        
         
         CalculoBi num = new CalculoBi(b1, b2);
